@@ -17,12 +17,19 @@ public class main{
         String sentence = scanner.nextLine(); 
 
         String cleanSentence = sentence.replaceAll("\\p{P}", "");
-        
-        String[] splitWords = cleanSentence.split(" "); 
+        String upperCaseSentence = cleanSentence.toUpperCase(); 
+        String[] splitWords = upperCaseSentence.split(" "); 
 
         for(String justWords:splitWords){
             System.out.println(justWords);
+            if(!wordCount.containsKey(justWords)){
+                wordCount.put(justWords, 1); 
+            } else {
+                wordCount.put(justWords, wordCount.get(justWords)+1);
+            }
         }
+
+        System.out.println(wordCount);
         }
 
     scanner.close(); 
