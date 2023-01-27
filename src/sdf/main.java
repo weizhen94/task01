@@ -2,8 +2,8 @@ package sdf;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class main{
@@ -11,10 +11,11 @@ public class main{
    
         FileReader reader = new FileReader("cat_in_the_hat.txt"); 
         Scanner scanner = new Scanner(reader); 
-        Map<String, Integer> wordCount = new HashMap<>(); 
+        HashMap<String, Integer> wordCount = new HashMap<>(); 
         
         while (scanner.hasNextLine()){
         String sentence = scanner.nextLine(); 
+        
 
         String cleanSentence = sentence.replaceAll("\\p{P}", "");
         String upperCaseSentence = cleanSentence.toUpperCase(); 
@@ -28,8 +29,10 @@ public class main{
                 wordCount.put(justWords, wordCount.get(justWords)+1);
             }
         }
+        ArrayList<HashMap<String, Integer>> arrayList = new ArrayList<HashMap<String, Integer>>();
+        arrayList.add(wordCount);
 
-        System.out.println(wordCount);
+        System.out.println(arrayList);
         }
 
     scanner.close(); 
